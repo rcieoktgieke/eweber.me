@@ -1,2 +1,22 @@
 siteTitle = "eweber.me"
 #linkPrefix = "/"
+
+[[menu]]
+id=0
+name="MENU 1"
+link="#"
+
+[[menu]]
+id=1
+name="MENU 2"
+link="#2"
+
+[[menu]]
+id=2
+name="MENU 3"
+link="#2"
+
+[[menu]]
+id=3
+name="MENU 4"
+link="#2"
