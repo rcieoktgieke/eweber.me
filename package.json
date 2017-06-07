@@ -1,0 +1,22 @@
+{
+  "name": "eweber.me",
+  "version": "1.0.0",
+  "description": "Eric Weber personal website built with React and Gatsby",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rcieoktgieke/eweber.me.git"
+  },
+  "author": "Eric Weber",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rcieoktgieke/eweber.me/issues"
+  },
+  "homepage": "https://github.com/rcieoktgieke/eweber.me#readme",
+  "dependencies": {
+    "gatsby": "^0.12.47"
+  }
+}
