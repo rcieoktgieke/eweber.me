@@ -1,11 +1,23 @@
 import React from 'react'
+import MenuBar from '../components/MenuBar'
 import 'css/site.scss'
 
 class Template extends React.Component {
   render () {
     return (
       <div className='contentWrapperDiv'>
-        {this.props.children}
+        <h1>eric weber</h1>
+        <MenuBar {...this.props} />
+        <div
+          style={{
+            margin: `0 auto`,
+            maxWidth: 960,
+            paddingTop: 0,
+            height: `100%`
+          }}
+        >
+          {this.props.children}
+        </div>
       </div>
     )
   }
