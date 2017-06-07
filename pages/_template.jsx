@@ -6,19 +6,10 @@ import 'css/site.scss'
 class Template extends React.Component {
   render () {
     return (
-      <div className='contentWrapperDiv'>
+      <div className='centerContentDiv'>
         <h1>eric weber</h1>
         <MenuBar config={config} {...this.props} />
-        <div
-          style={{
-            margin: `0 auto`,
-            maxWidth: 960,
-            paddingTop: 0,
-            height: `100%`
-          }}
-        >
-          {this.props.children}
-        </div>
+        {this.props.children}
       </div>
     )
   }
