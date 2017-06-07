@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/rcieoktgieke/eweber.me#readme",
   "dependencies": {
-    "gatsby": "^0.12.47"
+    "gatsby": "^0.12.47",
+    "react-helmet": "^5.1.3"
   }
 }
