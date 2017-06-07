@@ -1,4 +1,5 @@
 import React from 'react'
+import { config } from 'config'
 import MenuBar from '../components/MenuBar'
 import 'css/site.scss'
 
@@ -7,7 +8,7 @@ class Template extends React.Component {
     return (
       <div className='contentWrapperDiv'>
         <h1>eric weber</h1>
-        <MenuBar {...this.props} />
+        <MenuBar config={config} {...this.props} />
         <div
           style={{
             margin: `0 auto`,
