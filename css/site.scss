@@ -13,8 +13,21 @@ body {
   background-size: $background-image-size;
 }
 
-.menuBarItemLink {
-  font-family: 'Avenir Roman', 'Trebuchet MS', Arial, sans-serif;
+h1 {
+  font-size: 30pt;
+}
+
+.centerContentDiv {
+  width: $center-width;
+  position: relative;
+  left: 50%;
+  margin-left: - $center-width / 2;
+  top: 25vh;
+
+  text-align: left;
+}
+
+.menuBarItemLink, a {
   color: $color-one;
   text-decoration: none;
   transition: color .7s ease;
@@ -27,16 +40,6 @@ body {
   }
 }
 
-h1 {
-  font-family: 'Avenir Light', 'Trebuchet MS', Arial, sans-serif;
-}
-
-.centerContentDiv {
-  width: $center-width;
-  position: relative;
-  left: 50%;
-  margin-left: - $center-width / 2;
-  top: 25vh;
-
-  text-align: left;
+.menuBarItemLink {
+  font-family: 'Avenir Roman', 'Trebuchet MS', Arial, sans-serif;
 }
