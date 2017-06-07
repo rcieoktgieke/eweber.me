@@ -1,22 +1,21 @@
-siteTitle = "eweber.me"
-#linkPrefix = "/"
+siteTitle = "Eric Weber"
 
 [[menu]]
 id=0
-name="MENU 1"
+name="HOME"
 link="#"
 
 [[menu]]
 id=1
-name="MENU 2"
+name="IKARUS"
 link="#2"
 
 [[menu]]
 id=2
-name="MENU 3"
+name="PORTFOLIO"
 link="#2"
 
 [[menu]]
 id=3
-name="MENU 4"
+name="RESUM\u00c9"
 link="#2"
