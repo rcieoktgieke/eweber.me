@@ -7,11 +7,10 @@ html {
 body {
   font-family: 'Avenir Light', 'Trebuchet MS', Arial, sans-serif;
   color: $body-text-color;
-  background-color: $color-two;
-  background: url($background-image-file);
+
+  background: $color-two url($background-image-file);
   background-attachment: fixed;
   background-size: $background-image-size;
-  height: 100%;
 }
 
 a {
@@ -32,10 +31,12 @@ h1 {
   font-family: 'Avenir Light', 'Trebuchet MS', Arial, sans-serif;
 }
 
-#react-mount {
-  height: 100%;
-}
-
-.contentWrapperDiv {
+.centerContentDiv {
+  width: $center-width;
+  position: relative;
+  left: 50%;
+  margin-left: - $center-width / 2;
   top: 25vh;
+
+  text-align: left;
 }
