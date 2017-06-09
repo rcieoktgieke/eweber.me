@@ -1,7 +1,4 @@
 import React from 'react'
-// import { RouteHandler, Link } from 'react-router'
-// import { prefixLink } from 'gatsby-helpers'
-// import './style.css'
 import MenuItem from '../MenuItem'
 
 class MenuBar extends React.Component {
