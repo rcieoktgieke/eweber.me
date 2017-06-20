@@ -1,0 +1,7 @@
+.galleryThumbDiv {
+  position: relative; /*for absolute positioning of thumb-label-divs*/
+  display: block; /*sets dimensions of div to cleanly wrap contents*/
+  float: left; /*sets thumb divs to share rows*/
+  text-align: left; /*align thumb-label-divs left*/
+  line-height: 0; /*prevent phantom image padding*/
+}
