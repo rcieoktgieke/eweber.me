@@ -1,16 +1,17 @@
 import React from 'react'
-import IkarusGalleryRow from '../components/IkarusGalleryRow'
+import IkarusGallery from '../components/IkarusGallery'
 var galleries = require('../ikarus_galleries.json')
 
 export default class Ikarus extends React.Component {
   render () {
     const firstGallery = galleries[0]
-    const galleryItems = firstGallery['image_matrix'].map((galleryRow, row) =>
-      <IkarusGalleryRow key='row' rowData={galleryRow} imagesPath={firstGallery['images_path']} thumbsFolderPath={firstGallery['thumbs_folder_path']} />
-    )
     return (
       <div>
-        {galleryItems}
+        <IkarusGallery gallery={firstGallery} />
+        <div className='galleryOverlayDiv'>
+          <div className='galleryOverlayImageDiv' />
+          <div className='dragscroll overlayThumbDiv' />
+        </div>
       </div>
     )
   }
