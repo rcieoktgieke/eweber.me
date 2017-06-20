@@ -26,6 +26,32 @@
           "filename": "IMG_0096.jpg",
           "attribution": "",
           "label": "2"
+        },
+        {
+          "caption": "Cool Hat, Sweet Shades",
+          "filename": "IMG_8590.jpg",
+          "attribution": "",
+          "label": "3"
+        },
+        {
+          "caption": "Rock City",
+          "filename": "IMG_0293.jpg",
+          "attribution": "",
+          "label": "4"
+        }
+      ],
+      [
+        {
+          "caption": "Trinidad Bay",
+          "filename": "IMG_0328.jpg",
+          "attribution": "",
+          "label": "5"
+        },
+        {
+          "caption": "Poipu Beach, Kaui",
+          "filename": "IMG_0554.jpg",
+          "attribution": "",
+          "label": "6"
         }
       ]
     ]
