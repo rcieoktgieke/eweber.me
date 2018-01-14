@@ -1,12 +1,9 @@
 import React from 'react'
-import Helmet from 'react-helmet'
-import {config} from 'config'
 
 export default class Index extends React.Component {
   render () {
     return (
       <div>
-        <Helmet title={config.siteTitle + ' - Home'} />
         <h2>About Eric</h2>
         <p>Hi there!</p>
         <h2>Contact Eric</h2>

@@ -1,5 +1,5 @@
 import React from 'react'
-import MenuItem from '../MenuItem'
+import MenuItem from './components/MenuItem/index.js'
 
 class MenuBar extends React.Component {
   render () {
@@ -12,10 +12,6 @@ class MenuBar extends React.Component {
       <div>{menuBar}</div>
     )
   }
-}
-
-MenuBar.propTypes = {
-  route: React.PropTypes.object
 }
 
 export default MenuBar

@@ -1,10 +1,19 @@
 {
-  "name": "eweber.me",
-  "version": "1.0.0",
-  "description": "Eric Weber personal website built with React and Gatsby",
+  "name": "eweber.me-react",
+  "version": "0.1.0",
+  "description": "Eric Weber personal website built with React",
   "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.0.17"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "NODE_PATH=src/:config/ react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "repository": {
     "type": "git",
@@ -14,10 +23,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/rcieoktgieke/eweber.me/issues"
-  },
-  "homepage": "https://github.com/rcieoktgieke/eweber.me#readme",
-  "dependencies": {
-    "gatsby": "^0.12.47",
-    "react-helmet": "^5.1.3"
   }
 }

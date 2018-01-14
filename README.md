@@ -1,2 +1,2 @@
 # eweber.me
-new and improved personal website generated using Gatsby and React
+new and improved personal website generated using React
