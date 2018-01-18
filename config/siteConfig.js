@@ -3,13 +3,23 @@ const siteConfig = {
   menu: [
     {
       id: 0,
-      name: 'home',
+      name: 'HOME',
       link: '/home'
     },
     {
       id: 1,
-      name: 'ikarus',
+      name: 'IKARUS',
       link: '/ikarus'
+    },
+    {
+      id: 2,
+      name: 'PORTFOLIO',
+      link: '/portfolio'
+    },
+    {
+      id: 3,
+      name: 'RESUM\u00c9',
+      link: '/resume'
     }
   ]
 }

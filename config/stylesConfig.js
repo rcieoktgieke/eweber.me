@@ -4,14 +4,14 @@ const stylesConfig = {
     file: 'images/bg2.png'
   },
   centerWidth: 960,
-  bodyTextColor: 'white',
   colors: {
     primary: [
       '#FF7700',
       '#FFA700',
       '#FF4800'
     ],
-    secondary: '#122A14'
+    secondary: '#122A14',
+    bodyTextColor: 'white'
   }
 }
 

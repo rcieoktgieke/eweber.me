@@ -7,9 +7,7 @@ class MenuItem extends React.Component {
     return (
       <span style={styles.menuBarItemSpan}>
         <FadingLink link={(this.props.link)}>
-          <span style={styles.linkSpan}>
-            {this.props.name}
-          </span>
+          {this.props.name}
         </FadingLink>
         {this.props.last
           ? ''

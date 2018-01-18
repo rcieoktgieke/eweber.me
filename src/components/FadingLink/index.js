@@ -25,6 +25,7 @@ class FadingLink extends React.Component {
       <a
         style={styles.a(this.state)}
         href={this.props.link}
+        target={this.props.target}
         onMouseOver={() => this.onMouseOver()}
         onMouseOut={() => this.onMouseOut()}
         onMouseDown={() => this.onMouseDown()}

@@ -2,7 +2,8 @@ import stylesConfig from 'stylesConfig.js'
 
 const menuBarItemSpan = {
   color: stylesConfig.colors.primary[0],
-  fontSize: '18pt'
+  fontSize: '18pt',
+  fontFamily: 'Avenir Roman, Trebuchet MS, Arial, sans-serif'
 }
 
 const menuBarItemSeparator = {

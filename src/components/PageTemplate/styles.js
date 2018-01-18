@@ -6,7 +6,7 @@ const body = {
   height: '100vh',
   position: 'absolute',
   fontFamily: 'Avenir Light, Trebuchet MS, Arial, sans-serif',
-  color: stylesConfig.colors.primary[0],
+  color: stylesConfig.colors.bodyTextColor,
   background:
     stylesConfig.colors.secondary +
     ' url(' + stylesConfig.backgroundImage.file + ')',
