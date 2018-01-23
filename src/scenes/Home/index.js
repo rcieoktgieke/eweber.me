@@ -1,5 +1,5 @@
 import React from 'react'
-import FadingLink from 'components/FadingLink/index.js'
+import FadingLink from 'FadingLink/index.js'
 
 export default class Index extends React.Component {
   render () {

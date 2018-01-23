@@ -1,11 +1,11 @@
 import stylesConfig from 'stylesConfig.js'
-import commonStyles from 'common/commonStyles.js'
+import commonStyles from 'commonStyles.js'
 
 function a (aState) {
   var styles = {
     color: stylesConfig.colors.primary[0],
     textDecoration: 'none',
-    transition: 'color .7s ease'
+    transition: 'color .3s ease'
   }
   if (aState.hovered) {
     styles.color = stylesConfig.colors.primary[1]

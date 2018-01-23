@@ -1,5 +1,5 @@
 import stylesConfig from 'stylesConfig.js'
-import commonStyles from 'common/commonStyles.js'
+import commonStyles from 'commonStyles.js'
 
 const body = {
   width: '100%',

@@ -5,20 +5,21 @@ class FadingLink extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      hovered: false
+      hovered: false,
+      clicked: false
     }
   }
   onMouseOver () {
-    this.setState({hovered: true})
+    this.setState({hovered: true, clicked: false})
   }
   onMouseOut () {
-    this.setState({hovered: false})
+    this.setState({hovered: false, clicked: false})
   }
   onMouseDown () {
-    this.setState({clicked: true})
+    this.setState({clicked: true, hovered: false})
   }
   onMouseUp () {
-    this.setState({clicked: false})
+    this.setState({clicked: false, hovered: false})
   }
   render () {
     return (

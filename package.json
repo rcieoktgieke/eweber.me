@@ -1,19 +1,12 @@
 {
-  "name": "eweber.me-react",
-  "version": "0.1.0",
+  "name": "eweber.me",
+  "version": "1.0.0",
   "description": "Eric Weber personal website built with React",
   "main": "index.js",
-  "private": true,
-  "dependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-scripts": "1.0.17"
-  },
   "scripts": {
     "start": "NODE_PATH=src/:config/ react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "dev": "webpack-dev-server --watch --config webpack.config.js --content-base build/public/",
+    "build": "webpack -p"
   },
   "repository": {
     "type": "git",
@@ -23,5 +16,19 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/rcieoktgieke/eweber.me/issues"
+  },
+  "homepage": "https://github.com/rcieoktgieke/eweber.me#readme",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router": "^4.2.0",
+    "webpack": "^3.10.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^2.11.0"
   }
 }
