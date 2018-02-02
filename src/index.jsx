@@ -2,11 +2,26 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Home from 'Home/index.js'
 import PageTemplate from 'PageTemplate/index.js'
-import { Router, Route, Switch } from 'react-router'
+import { BrowserRouter, Route } from 'react-router-dom'
 
-ReactDOM.render(
+const homePage = () => (
   <PageTemplate>
     <Home />
-  </PageTemplate>,
+  </PageTemplate>
+)
+
+ReactDOM.render(
+  <BrowserRouter>
+    <div>
+      <Route
+        exact path='/'
+        component={homePage}
+      />
+      <Route
+        path='/home'
+        component={homePage}
+      />
+    </div>
+  </BrowserRouter>,
   document.getElementById('app')
 )
