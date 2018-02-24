@@ -6,7 +6,7 @@
   "scripts": {
     "start": "NODE_PATH=src/:config/ react-scripts start",
     "dev": "webpack-dev-server --watch --config webpack.config.js --content-base build/public/",
-    "build": "webpack -p"
+    "build": "webpack -p --config webpack.config.js --output-path build/public/"
   },
   "repository": {
     "type": "git",
