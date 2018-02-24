@@ -29,7 +29,12 @@
     "webpack": "^3.10.0"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.2",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "standard": "^11.0.0",
     "webpack-dev-server": "^2.11.0"
+  },
+  "standard": {
+    "parser": "babel-eslint"
   }
 }
