@@ -1,3 +1,4 @@
+var webpack = require('webpack')
 var path = require('path')
 
 var SRC_DIR = path.resolve(__dirname, 'src')
@@ -8,7 +9,7 @@ var config = {
   entry: SRC_DIR + '/index.jsx',
   output: {
     path: BUILD_DIR,
-    filename: 'bundle.js'
+    filename: '[name].bundle.js'
   },
   module: {
     loaders: [
@@ -28,7 +29,13 @@ var config = {
       SRC_DIR + '/scenes',
       CONFIG_DIR
     ]
-  }
+  },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'common',
+      filename: 'common.js'
+    })
+  ]
 }
 
 module.exports = config
