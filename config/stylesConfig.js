@@ -1,7 +1,7 @@
 const stylesConfig = {
   backgroundImage: {
     size: '53px 73px',
-    file: 'images/bg2.png'
+    file: 'bg2.png'
   },
   centerWidth: 960,
   colors: {
