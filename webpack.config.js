@@ -1,5 +1,6 @@
 var webpack = require('webpack')
 var path = require('path')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 var SRC_DIR = path.resolve(__dirname, 'src')
 var CONFIG_DIR = path.resolve(__dirname, 'config')
@@ -34,7 +35,8 @@ var config = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'common',
       filename: 'common.js'
-    })
+    }),
+    new CopyWebpackPlugin([{ from: 'src/static/*', to: '', flatten: true }])
   ]
 }
 

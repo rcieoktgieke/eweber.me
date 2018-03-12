@@ -6,7 +6,9 @@
   "scripts": {
     "start": "NODE_PATH=src/:config/ react-scripts start",
     "dev": "webpack-dev-server --watch --config webpack.config.js --content-base build/public/",
-    "build": "webpack -p --config webpack.config.js --output-path build/public/"
+    "build": "webpack -p --config webpack.config.js --output-path build/public/",
+    "upload_dry": "aws s3 sync --dryrun build/public/ s3://testing.eweber.me/",
+    "upload": "aws s3 sync build/public/ s3://testing.eweber.me/"
   },
   "repository": {
     "type": "git",
@@ -31,6 +33,7 @@
   "devDependencies": {
     "babel-eslint": "^8.2.2",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "copy-webpack-plugin": "^4.5.1",
     "standard": "^11.0.0",
     "webpack-dev-server": "^2.11.0"
   },
