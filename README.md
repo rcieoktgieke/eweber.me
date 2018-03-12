@@ -5,7 +5,7 @@ Hosted on Amazon S3 buckets with Cloudflare.
 
 ## Set up IAM accounts:
 
-Create an admin IAM Group with an AdministratorAccess policy attached. Create an admin user in this group. Use that new admin user to create a site-editors IAM Group with no policies attached. Use the admin user to create a jenkins-ci user in the site-editors group.
+Create an admin IAM Group with an AdministratorAccess policy attached. Create an admin user in this group with Programmatic and Console access. Use that new admin user to create a site-editors IAM Group with no policies attached. Use the admin user to create a travis-ci user in the site-editors group with Programmatic access. Note the Access key ID and Secret access key provided after creating the user.
 
 ## Set up S3 Bucket and Cloudflare
 
@@ -13,43 +13,55 @@ Create new S3 Bucket with name matching the site domain name. Under Properties, 
 
 S3 Bucket policy:
 {
-    "Version": "2012-10-17",
-    "Id": "Policy1517972675211",
-    "Statement": [
-        {
-            "Sid": "Stmt1517972672845",
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::testing.eweber.me/*"
-        },
-        {
-            "Sid": "Stmt1520223882120",
-            "Action": [
-                "s3:DeleteObject",
-                "s3:GetObject",
-                "s3:PutObject"
-            ],
-            "Effect": "Allow",
-            "Resource": "arn:aws:s3:::testing.eweber.me/*",
-            "Principal": {
-                "AWS": [
-                    "arn:aws:iam::304324697838:user/jenkins-ci"
-                ]
-            }
-        },
-        {
-            "Sid": "Stmt1520224888127",
-            "Action": [
-                "s3:ListBucket"
-            ],
-            "Effect": "Allow",
-            "Resource": "arn:aws:s3:::testing.eweber.me",
-            "Principal": {
-                "AWS": [
-                    "arn:aws:iam::304324697838:user/jenkins-ci"
-                ]
-            }
-        }
-    ]
+  "Id": "Policy1520826594907",
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Stmt1520826593362",
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::testing.eweber.me/*",
+      "Principal": "*"
+    },
+    {
+      "Sid": "Stmt1520826505480",
+      "Action": [
+        "s3:DeleteObject",
+        "s3:GetObject",
+        "s3:PutObject"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::testing.eweber.me/*",
+      "Principal": {
+        "AWS": [
+          "arn:aws:iam::304324697838:user/travis-ci"
+        ]
+      }
+    },
+    {
+      "Sid": "Stmt1520826542561",
+      "Action": [
+        "s3:ListBucket"
+      ],
+      "Effect": "Allow",
+        "Resource": "arn:aws:s3:::testing.eweber.me",
+      "Principal": {
+        "AWS": [
+          "arn:aws:iam::304324697838:user/travis-ci"
+        ]
+      }
+    }
+  ]
 }
+
+## Set up Travis CI
+
+- Install Travis CLI: `gem install travis`
+- Encrypt IAM Secret access key `travis encrypt --add deploy.secret_access_key`
+  - Paste in the Secret access key noted during the IAM account creation
+  - Enter then Ctrl-D to encrypt
+  - Encrypted key will be added to .travis.yml
+- Set `access_key_id` to the Access key ID noted during the IAM account creation
+- Set the `bucket` to the bucket name
