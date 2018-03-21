@@ -4,9 +4,7 @@ DEV := true
 IMAGE_NAME := eweber.me/dev
 CONTAINER_NAME := $(subst /,_,$(IMAGE_NAME))_container
 
-DISP_IP := $(shell ifconfig en0 | grep inet | awk '$$1=="inet" {print $$2}')
-DOCKER_DISPLAY_OPTIONS := -e DISPLAY=docker.for.mac.localhost:0 \
-													-v /tmp/.X11-unix:/tmp/.X11-unix
+DOCKER_DISPLAY_OPTIONS := -e DISPLAY=docker.for.mac.localhost:0
 
 DOCKER_RUN_CMD := docker run \
 									-d \
