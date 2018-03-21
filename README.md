@@ -3,6 +3,14 @@ new and improved personal website built with a custom React, Babel, and Webpack 
 
 Hosted on Amazon S3 buckets with Cloudflare.
 
+## Set up dev env (Mac):
+
+Download and install XQuartz: https://www.xquartz.org
+  * Run XQuartz: `open -a XQuartz`
+  * Open XQuartz preferences
+  * Under Security, check Allow connections from network clients
+Install Docker: https://docs.docker.com/docker-for-mac/install/
+
 ## Set up IAM accounts:
 
 Create an admin IAM Group with an AdministratorAccess policy attached. Create an admin user in this group with Programmatic and Console access. Use that new admin user to create a site-editors IAM Group with no policies attached. Use the admin user to create a travis-ci user in the site-editors group with Programmatic access. Note the Access key ID and Secret access key provided after creating the user.

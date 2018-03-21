@@ -1,0 +1,46 @@
+#!/bin/bash
+
+DEV := true
+IMAGE_NAME := eweber.me/dev
+CONTAINER_NAME := $(subst /,_,$(IMAGE_NAME))_container
+
+DISP_IP := $(shell ifconfig en0 | grep inet | awk '$$1=="inet" {print $$2}')
+DOCKER_DISPLAY_OPTIONS := -e DISPLAY=docker.for.mac.localhost:0 \
+													-v /tmp/.X11-unix:/tmp/.X11-unix
+
+DOCKER_RUN_CMD := docker run \
+									-d \
+									--name $(CONTAINER_NAME) \
+									$(DOCKER_DISPLAY_OPTIONS) \
+									$(IMAGE_NAME)
+DOCKER_RESTART_CMD := docker start $(CONTAINER_NAME)
+DOCKER_EXEC_CMD := docker exec -it $(CONTAINER_NAME) bash
+
+ifndef CONTAINER_ID
+  # container not running, restart if exited or start a new one
+  CONTAINER_ID := $(shell docker ps -q -a --filter name=$(CONTAINER_NAME))
+  ifdef CONTAINER_ID
+    #container exists but is exited, restart it
+    DOCKER_START_CMD := $(DOCKER_RESTART_CMD)
+  else
+    # container doesn't exist, start from scratch
+    DOCKER_START_CMD := $(DOCKER_RUN_CMD)
+  endif
+endif
+
+
+docker_build:
+	docker build -t $(IMAGE_NAME) docker
+
+docker_start:
+	xhost + 127.0.0.1
+	$(DOCKER_START_CMD)
+	$(DOCKER_EXEC_CMD)
+
+docker_stop:
+	docker stop $(CONTAINER_NAME)
+	xhost - 127.0.0.1
+	osascript -e 'quit app "XQuartz"'
+
+docker_rm:
+	docker rm $(CONTAINER_NAME)
