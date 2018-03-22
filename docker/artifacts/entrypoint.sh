@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Setting up user"
-# /container_user_setup.sh
+/container_user_setup.sh
 
 echo "Adding ssh keys to agent"
 eval "$(ssh-agent -s)"
