@@ -1,4 +1,5 @@
 #!/bin/bash
+.RECIPEPREFIX +=
 
 DEV := true
 IMAGE_NAME := eweber.me/dev
