@@ -4,19 +4,30 @@ DEV := true
 IMAGE_NAME := eweber.me/dev
 CONTAINER_NAME := $(subst /,_,$(IMAGE_NAME))_container
 
-DOCKER_DISPLAY_OPTIONS := -e DISPLAY=docker.for.mac.localhost:0
+USER_ID := $(shell id -u)
+USER_GROUP := $(shell id -g -n)
+GROUP_ID := $(shell id -g)
+DEV_RUN_OPTIONS :=  -e HOME=/home/$(USER) \
+                    -e DEV_USER=$(USER) \
+                    -e DEV_USER_ID=$(USER_ID) \
+                    -e DEV_USER_GROUP=$(USER_GROUP) \
+                    -e DEV_GROUP_ID=$(GROUP_ID) \
+                    -e DISPLAY=docker.for.mac.localhost:0 \
+                    -v "$(shell pwd)":/home/$(USER)/eweber.me \
+                    -v $(HOME)/.ssh:/home/$(USER)/.ssh \
+                    -v $(HOME)/.gitconfig:/home/$(USER)/.gitconfig \
+                    -w /home/$(USER)
 
 DOCKER_RUN_CMD := docker run \
-									-d \
-									--name $(CONTAINER_NAME) \
-									$(DOCKER_DISPLAY_OPTIONS) \
-									$(IMAGE_NAME)
+                    -d \
+                    --name $(CONTAINER_NAME) \
+                    $(DEV_RUN_OPTIONS) \
+                    $(IMAGE_NAME)
 DOCKER_RESTART_CMD := docker start $(CONTAINER_NAME)
-DOCKER_EXEC_CMD := docker exec -it $(CONTAINER_NAME) bash
 
 WAIT_FOR_RUNNING := while [[ ! $$(docker logs $(CONTAINER_NAME) | grep 'Entrypoint complete') ]]; do \
                       echo "Waiting for container to be ready"; \
-                      sleep .1; \
+                      sleep 1; \
                     done
 
 ifndef CONTAINER_ID
@@ -33,18 +44,18 @@ endif
 
 
 docker_build:
-	docker build -t $(IMAGE_NAME) docker
+  docker build -t $(IMAGE_NAME) docker
 
 docker_start:
-	xhost + 127.0.0.1
-	$(DOCKER_START_CMD)
-	$(WAIT_FOR_RUNNING)
-	$(DOCKER_EXEC_CMD)
+  xhost + 127.0.0.1
+  $(DOCKER_START_CMD)
+  $(WAIT_FOR_RUNNING)
+  docker exec -it --user $(USER) $(CONTAINER_NAME) bash
 
 docker_stop:
-	docker stop $(CONTAINER_NAME)
-	xhost - 127.0.0.1
-	osascript -e 'quit app "XQuartz"'
+  docker stop $(CONTAINER_NAME)
+  xhost - 127.0.0.1
+  osascript -e 'quit app "XQuartz"'
 
 docker_rm:
-	docker rm $(CONTAINER_NAME)
+  docker rm $(CONTAINER_NAME)
