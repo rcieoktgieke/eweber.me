@@ -1,7 +1,7 @@
 #!/bin/bash
 .RECIPEPREFIX +=
 
-DEV := true
+DEV ?= true
 IMAGE_NAME := eweber.me/dev
 CONTAINER_NAME := $(subst /,_,$(IMAGE_NAME))_container
 
@@ -54,7 +54,8 @@ endif
 
 
 docker_build:
-  docker build -t $(IMAGE_NAME) docker
+  docker build --no-cache -t eweber.me/base docker/base
+  docker build -t $(IMAGE_NAME) docker/dev
 
 docker_start:
   xhost + 127.0.0.1
