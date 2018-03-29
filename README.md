@@ -3,14 +3,6 @@ new and improved personal website built with a custom React, Babel, and Webpack 
 
 Hosted on Amazon S3 buckets with Cloudflare.
 
-## Set up dev env (Mac):
-
-Download and install XQuartz: https://www.xquartz.org
-  * Run XQuartz: `open -a XQuartz`
-  * Open XQuartz preferences
-  * Under Security, check Allow connections from network clients
-Install Docker: https://docs.docker.com/docker-for-mac/install/
-
 ## Set up IAM accounts:
 
 Create an admin IAM Group with an AdministratorAccess policy attached. Create an admin user in this group with Programmatic and Console access. Use that new admin user to create a site-editors IAM Group with no policies attached. Use the admin user to create a travis-ci user in the site-editors group with Programmatic access. Note the Access key ID and Secret access key provided after creating the user.
@@ -44,7 +36,8 @@ S3 Bucket policy:
       "Resource": "arn:aws:s3:::testing.eweber.me/*",
       "Principal": {
         "AWS": [
-          "arn:aws:iam::304324697838:user/travis-ci"
+          "arn:aws:iam::304324697838:user/travis-ci",
+          "arn:aws:iam::304324697838:user/eric-dev"
         ]
       }
     },
@@ -57,12 +50,23 @@ S3 Bucket policy:
         "Resource": "arn:aws:s3:::testing.eweber.me",
       "Principal": {
         "AWS": [
-          "arn:aws:iam::304324697838:user/travis-ci"
+          "arn:aws:iam::304324697838:user/travis-ci",
+          "arn:aws:iam::304324697838:user/eric-dev"
         ]
       }
     }
   ]
 }
+
+## Set up dev env (Mac):
+
+Download and install XQuartz: https://www.xquartz.org
+  * Run XQuartz: `open -a XQuartz`
+  * Open XQuartz preferences
+  * Under Security, check Allow connections from network clients
+Install Docker: https://docs.docker.com/docker-for-mac/install/
+
+In the `keys` folder, duplicate the the `aws_key.mk.example` file -- name the duplicate file `aws_key.mk`. Replace the `12345....12345` placeholders with the access key ID and IAM Secret access key, respectively, noted during the IAM account creation.
 
 ## Set up Travis CI
 

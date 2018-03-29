@@ -5,6 +5,7 @@ USER root
 
 RUN apt-get update
 RUN apt-get install -y apt-transport-https
+RUN apt-get install -y awscli
 RUN apt-get install -y curl
 RUN apt-get install -y git-all
 RUN apt-get install -y sudo

@@ -1,3 +1,5 @@
 /build/
 /node_modules/
 /pages/images/
+/keys/*
+!/keys/*.example

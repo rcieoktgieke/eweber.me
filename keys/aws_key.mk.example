@@ -1,0 +1,5 @@
+#!/bin/bash
+
+AWS_ACCESS_KEY_ID := 12345....12345
+AWS_SECRET_ACCESS_KEY := 12345....12345
+export
