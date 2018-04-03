@@ -1,0 +1,25 @@
+#!/bin/bash
+.RECIPEPREFIX +=
+
+BASE_IMG_NAME := eweber.me/base
+IMAGE_NAME := eweber.me/prod
+RUN_OPTIONS :=  -d \
+                -w /root/eweber.me \
+                -v "$(shell pwd)":/root/eweber.me
+DOCKER_RUN_CMD_ARG := /bin/bash -c "npm install; \
+                        npm run build; \
+                        echo 'eweber.me built'; \
+                      "
+
+.PHONY: docker_build build docker_rmi
+
+docker_build:
+  docker build -t $(BASE_IMG_NAME) docker/base
+  docker tag $(BASE_IMG_NAME) $(IMAGE_NAME)
+
+build:
+  docker run --rm $(RUN_OPTIONS) $(IMAGE_NAME) $(DOCKER_RUN_CMD_ARG)
+
+docker_rmi:
+  docker rmi $(IMAGE_NAME)
+  docker rmi $(BASE_IMG_NAME)
