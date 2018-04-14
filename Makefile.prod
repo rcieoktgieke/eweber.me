@@ -5,7 +5,8 @@ IMAGE_NAME := eweber.me/prod
 RUN_OPTIONS :=  -d \
 								-w /root/eweber.me \
 								-v "$(shell pwd)":/root/eweber.me
-DOCKER_RUN_CMD_ARG := /bin/bash -c "npm install; \
+DOCKER_RUN_CMD_ARG := /bin/bash -c "chown -R $$UID:$$UID /root/eweber.me/; \
+												npm install; \
 												npm run build; \
 												echo 'eweber.me built'; \
 											"
