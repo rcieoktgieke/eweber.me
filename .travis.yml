@@ -8,7 +8,7 @@ services:
   - docker
 
 before_install:
-  - make -v
+  - sudo chown -R travis:travis /home/travis
   - make -f Makefile.prod docker_build
   - make -f Makefile.prod build
 
