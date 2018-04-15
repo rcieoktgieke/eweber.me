@@ -6,6 +6,7 @@ RUN_OPTIONS :=  -d \
 								-w /root/eweber.me \
 								-v "$(shell pwd)":/root/eweber.me
 DOCKER_RUN_CMD_ARG := /bin/bash -c "chown -R $$UID:$$UID /root/eweber.me/; \
+												pwd; \
 												npm install; \
 												npm run build; \
 												echo 'eweber.me built'; \
