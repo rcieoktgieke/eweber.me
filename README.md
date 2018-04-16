@@ -36,7 +36,8 @@ S3 Bucket policy:
       "Resource": "arn:aws:s3:::testing.eweber.me/*",
       "Principal": {
         "AWS": [
-          "arn:aws:iam::304324697838:user/travis-ci"
+          "arn:aws:iam::304324697838:user/travis-ci",
+          "arn:aws:iam::304324697838:user/eric-dev"
         ]
       }
     },
@@ -49,12 +50,23 @@ S3 Bucket policy:
         "Resource": "arn:aws:s3:::testing.eweber.me",
       "Principal": {
         "AWS": [
-          "arn:aws:iam::304324697838:user/travis-ci"
+          "arn:aws:iam::304324697838:user/travis-ci",
+          "arn:aws:iam::304324697838:user/eric-dev"
         ]
       }
     }
   ]
 }
+
+## Set up dev env (Mac):
+
+Download and install XQuartz: https://www.xquartz.org
+  * Run XQuartz: `open -a XQuartz`
+  * Open XQuartz preferences
+  * Under Security, check Allow connections from network clients
+Install Docker: https://docs.docker.com/docker-for-mac/install/
+
+In the `keys` folder, duplicate the the `aws_key.mk.example` file -- name the duplicate file `aws_key.mk`. Replace the `12345....12345` placeholders with the access key ID and IAM Secret access key, respectively, noted during the IAM account creation.
 
 ## Set up Travis CI
 

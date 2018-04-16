@@ -1,7 +1,13 @@
-language: node_js
-node_js:
-  - lts/*
-script: npm run build
+sudo: required
+language: bash
+services:
+  - docker
+
+install:
+  - make -f Makefile.prod docker_build
+script:
+  - make -f Makefile.prod build
+
 deploy:
   provider: s3
   access_key_id: AKIAIFPYH4YRB5HUTOTQ
