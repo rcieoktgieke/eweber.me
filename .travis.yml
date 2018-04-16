@@ -1,18 +1,16 @@
 sudo: required
-
-language: node_js
-node_js:
-  - lts/*
-
+language: bash
 services:
   - docker
 
 before_install:
   - sudo chown -R travis:travis /home/travis
+install:
   - make -f Makefile.prod docker_build
+script:
   - make -f Makefile.prod build
-
-script: ls build/public
+before_cache:
+  - ls build/public
 
 deploy:
   provider: s3
