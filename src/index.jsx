@@ -29,9 +29,10 @@ class Site extends React.Component {
   }
 }
 
+var page = document.getElementById('app').getAttribute('page')
 ReactDOM.render(
   <BrowserRouter>
-    <Site />
+    <Site page={page} />
   </BrowserRouter>,
   document.getElementById('app')
 )
