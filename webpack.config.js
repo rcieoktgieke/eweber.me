@@ -36,7 +36,12 @@ var config = {
 			name: 'common',
 			filename: 'common.js'
 		}),
-		new CopyWebpackPlugin([{ from: 'src/static/*', to: '', flatten: true }])
+		new CopyWebpackPlugin([{
+			from: '**',
+			context: 'src/static/',
+			to: '',
+			flatten: false
+		}])
 	]
 }
 
