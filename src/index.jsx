@@ -6,10 +6,15 @@ import { BrowserRouter, Route, Link } from 'react-router-dom'
 
 class Site extends React.Component {
 	render () {
+		var paths = {
+			index: '/index',
+			home: '/home'
+		}
+		paths[this.props.page] = '/'
 		return (
 			<div>
 				<Route
-					exact path='/'
+					exact path={paths.index}
 					component={() => (
 						<PageTemplate>
 							<div><Link to='/home'>Helloooooo</Link></div>
@@ -17,7 +22,7 @@ class Site extends React.Component {
 					)}
 				/>
 				<Route
-					path='/home'
+					path={paths.home}
 					component={() => (
 						<PageTemplate>
 							<Bundle load={import('Home/index.jsx')} />
