@@ -21,7 +21,21 @@ const siteConfig = {
 			name: 'RESUM\u00c9',
 			link: '/resume'
 		}
+	],
+	pages: [
+		{
+			path: '',
+			name: 'index'
+		},
+		{
+			path: 'index/',
+			name: 'index'
+		},
+		{
+			path: 'home/',
+			name: 'home'
+		}
 	]
 }
 
-export default siteConfig
+module.exports = siteConfig

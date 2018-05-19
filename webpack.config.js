@@ -1,6 +1,7 @@
 var webpack = require('webpack')
 var path = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+var siteConfig = require('./config/siteConfig.js')
 
 var SRC_DIR = path.resolve(__dirname, 'src')
 var CONFIG_DIR = path.resolve(__dirname, 'config')
@@ -36,12 +37,23 @@ var config = {
 			name: 'common',
 			filename: 'common.js'
 		}),
-		new CopyWebpackPlugin([{
-			from: '**',
-			context: 'src/static/',
-			to: '',
-			flatten: false
-		}])
+		new CopyWebpackPlugin(
+			siteConfig.pages.map(page => {
+				var copyPage = {
+					from: 'src/index.html',
+					to: page.path + 'index.html',
+					transform: (html, path) => {
+						var interpolated = html.toString().replace('__interpolate_path__', page.name)
+						return interpolated
+					}
+				}
+				return copyPage
+			}).concat({
+				from: '**/*',
+				context: 'src/static',
+				to: ''
+			})
+		)
 	]
 }
 
