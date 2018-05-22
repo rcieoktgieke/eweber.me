@@ -25,15 +25,18 @@ const siteConfig = {
 	pages: [
 		{
 			path: '',
-			name: 'index'
+			name: 'index',
+			depth: 0
 		},
 		{
 			path: 'index/',
-			name: 'index'
+			name: 'index',
+			depth: 1
 		},
 		{
 			path: 'home/',
-			name: 'home'
+			name: 'home',
+			depth: 1
 		}
 	]
 }
