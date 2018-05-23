@@ -38,10 +38,11 @@ var config = {
 			filename: 'common.js'
 		}),
 		new CopyWebpackPlugin(
-			siteConfig.pages.map(page => {
-				var copyPage = {
+			Object.keys(siteConfig.pages).map(pageKey => {
+				var page = siteConfig.pages[pageKey]
+				return {
 					from: 'src/index.html',
-					to: page.path + 'index.html',
+					to: page.htmlPath + 'index.html',
 					transform: (html, path) => {
 						var interpolated = html.toString().replace(/__interpolate_path__/g, page.name)
 						var rootPath = ''
@@ -52,7 +53,6 @@ var config = {
 						return interpolated
 					}
 				}
-				return copyPage
 			}).concat({
 				from: '**/*',
 				context: 'src/static',

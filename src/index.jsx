@@ -7,26 +7,20 @@ import siteConfig from 'siteConfig.js'
 
 class Site extends React.Component {
 	render () {
-		var paths = {}
-		for (var pageIdx = 0; pageIdx < siteConfig.pages.length; pageIdx ++) {
-			var page = siteConfig.pages[pageIdx]
-			if (page.path != '') {
-				paths[page.name] = '/' + page.name
-			}
-		}
-		paths[this.props.page] = '/'
+		var pages = siteConfig.pages
+		pages[this.props.page].path = '/'
 		return (
 			<div>
 				<Route
-					exact path={paths.index}
+					exact path={pages.index.path}
 					component={() => (
 						<PageTemplate>
-							<div><Link to={paths.home}>Helloooooo</Link></div>
+							<div><Link to={pages.home.path}>Helloooooo</Link></div>
 						</PageTemplate>
 					)}
 				/>
 				<Route
-					path={paths.home}
+					path={pages.home.path}
 					component={() => (
 						<PageTemplate>
 							<Bundle load={import('Home/index.jsx')} />

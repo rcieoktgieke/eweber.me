@@ -22,23 +22,26 @@ const siteConfig = {
 			link: '/resume'
 		}
 	],
-	pages: [
-		{
-			path: '',
+	pages: {
+		root_index: {
 			name: 'index',
+			path: '/',
+			htmlPath: '',
 			depth: 0
 		},
-		{
-			path: 'index/',
+		index: {
 			name: 'index',
+			path: '/index',
+			htmlPath: 'index/',
 			depth: 1
 		},
-		{
-			path: 'home/',
+		home: {
 			name: 'home',
+			path: '/home',
+			htmlPath: 'home/',
 			depth: 1
 		}
-	]
+	}
 }
 
 module.exports = siteConfig
