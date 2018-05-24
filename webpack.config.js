@@ -44,12 +44,11 @@ var config = {
 					from: 'src/index.html',
 					to: page.htmlPath + 'index.html',
 					transform: (html, path) => {
-						var interpolated = html.toString().replace(/__interpolate_path__/g, page.name)
 						var rootPath = ''
 						for (var i = 0; i < page.depth; i ++) {
 							rootPath += '../'
 						}
-						interpolated = interpolated.replace(/__interpolate_root_path__/g, rootPath)
+						interpolated = html.toString().replace(/__interpolate_root_path__/g, rootPath)
 						return interpolated
 					}
 				}

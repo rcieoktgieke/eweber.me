@@ -24,13 +24,11 @@ const siteConfig = {
 	],
 	pages: {
 		index: {
-			name: 'index',
 			path: '/',
 			htmlPath: '',
 			depth: 0
 		},
 		home: {
-			name: 'home',
 			path: '/home',
 			htmlPath: 'home/',
 			depth: 1
