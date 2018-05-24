@@ -23,17 +23,11 @@ const siteConfig = {
 		}
 	],
 	pages: {
-		root_index: {
+		index: {
 			name: 'index',
 			path: '/',
 			htmlPath: '',
 			depth: 0
-		},
-		index: {
-			name: 'index',
-			path: '/index',
-			htmlPath: 'index/',
-			depth: 1
 		},
 		home: {
 			name: 'home',

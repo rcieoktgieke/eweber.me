@@ -8,14 +8,13 @@ import siteConfig from 'siteConfig.js'
 class Site extends React.Component {
 	render () {
 		var pages = siteConfig.pages
-		pages[this.props.page].path = '/'
 		return (
 			<div>
 				<Route
-					exact path={pages.index.path}
+					path={pages.index.path}
 					component={() => (
 						<PageTemplate>
-							<div><Link to={pages.home.path}>Helloooooo</Link></div>
+							<div><Link to={pages.home.path}>Hooooome</Link></div>
 						</PageTemplate>
 					)}
 				/>
