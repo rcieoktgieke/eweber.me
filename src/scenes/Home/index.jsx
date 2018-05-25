@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import FadingLink from 'FadingLink/index.js'
+import FadingLink from 'FadingLink/index.jsx'
 import siteConfig from 'siteConfig.js'
 
 export default class Index extends React.Component {
