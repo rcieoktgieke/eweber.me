@@ -24,7 +24,7 @@ class FadingLink extends React.Component {
 	render () {
 		return (
 			<a
-				style={styles.a(this.state)}
+				style={styles.fadingEl(this.state)}
 				href={this.props.link}
 				target={this.props.target}
 				onMouseOver={() => this.onMouseOver()}

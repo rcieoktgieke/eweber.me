@@ -1,16 +1,16 @@
 import stylesConfig from 'stylesConfig.js'
 import commonStyles from 'commonStyles.js'
 
-function a (aState) {
+function fadingEl (state) {
   var styles = {
     color: stylesConfig.colors.primary[0],
     textDecoration: 'none',
     transition: 'color .3s ease'
   }
-  if (aState.hovered) {
+  if (state.hovered) {
     styles.color = stylesConfig.colors.primary[1]
   }
-  if (aState.clicked) {
+  if (state.clicked) {
     styles.color = stylesConfig.colors.primary[2]
     styles.transition = 'none'
   }
@@ -18,7 +18,7 @@ function a (aState) {
 }
 
 const styles = {
-  a: a,
+  fadingEl: fadingEl,
   commonStyles: commonStyles
 }
 
