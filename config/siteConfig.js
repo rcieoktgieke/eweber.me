@@ -4,7 +4,7 @@ const siteConfig = {
 		{
 			id: 0,
 			name: 'HOME',
-			link: '/home'
+			link: '/'
 		},
 		{
 			id: 1,
@@ -23,14 +23,14 @@ const siteConfig = {
 		}
 	],
 	pages: {
-		index: {
+		home: {
 			path: '/',
 			htmlPath: '',
 			depth: 0
 		},
-		home: {
-			path: '/home',
-			htmlPath: 'home/',
+		portfolio: {
+			path: '/portfolio',
+			htmlPath: 'portfolio/',
 			depth: 1
 		}
 	}

@@ -10,18 +10,18 @@ export default class Site extends React.Component {
 		return (
 			<div>
 				<Route
-					path={pages.index.path}
-					component={() => (
-						<PageTemplate>
-							<div><Link to={pages.home.path}>Hooooome</Link></div>
-						</PageTemplate>
-					)}
-				/>
-				<Route
 					path={pages.home.path}
 					component={() => (
 						<PageTemplate>
 							<Bundle load={import('Home/index.jsx')} />
+						</PageTemplate>
+					)}
+				/>
+				<Route
+					path={pages.portfolio.path}
+					component={() => (
+						<PageTemplate>
+							<Bundle load={import('Portfolio/index.jsx')} />
 						</PageTemplate>
 					)}
 				/>

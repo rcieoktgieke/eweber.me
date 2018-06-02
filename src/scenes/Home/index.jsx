@@ -8,9 +8,8 @@ export default class Index extends React.Component {
 		return (
 			<div>
 				<h2>About Eric</h2>
-				<p>Hi there!</p>
+				<p>Hi there! Also check out <FadingLink link={siteConfig.pages.portfolio.path}>Eric's portfolio!</FadingLink> It's pretty cool.</p>
 				<h2>Contact Eric</h2>
-				<Link to={siteConfig.pages.index.path}>Back to home</Link>
 				<p>
 					Send me an email at <FadingLink link='mailto:contact@eweber.me'>contact@eweber.me</FadingLink> or give me a call at (925) 518-2633
 				</p>
