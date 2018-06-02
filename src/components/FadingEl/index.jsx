@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './styles.js'
 
-class FadingLink extends React.Component {
+class FadingEl extends React.Component {
 	constructor (props) {
 		super(props)
 		this.state = {
@@ -23,7 +23,7 @@ class FadingLink extends React.Component {
 	}
 	render () {
 		return (
-			<a
+			<span
 				style={styles.fadingEl(this.state)}
 				href={this.props.link}
 				target={this.props.target}
@@ -33,9 +33,9 @@ class FadingLink extends React.Component {
 				onMouseUp={() => this.onMouseUp()}
 			>
 				{this.props.children}
-			</a>
+			</span>
 		)
 	}
 }
 
-export default FadingLink
+export default FadingEl
