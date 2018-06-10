@@ -11,6 +11,6 @@ RUN rm -rf /var/lib/apt/lists/*
 
 # Install Node and NPM
 RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - && \
-    apt-get update && \
-    apt-get install -y nodejs build-essential && \
-    rm -rf /var/lib/apt/lists/*
+		apt-get update && \
+		apt-get install -y nodejs build-essential && \
+		rm -rf /var/lib/apt/lists/*

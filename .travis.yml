@@ -1,21 +1,21 @@
 sudo: required
 language: bash
 services:
-  - docker
+	- docker
 
 install:
-  - make -f Makefile.prod docker_build
+	- make -f Makefile.prod docker_build
 script:
-  - make -f Makefile.prod build
+	- make -f Makefile.prod build
 
 deploy:
-  provider: s3
-  access_key_id: AKIAIFPYH4YRB5HUTOTQ
-  secret_access_key:
-    secure: ImJ9WcWhkw1scFA4zUySoc7Ch6uRbWNFGYQZkyYQo7akHLA3rXc3+MAt1kDLV1UKa4E1mp7yC9dS5+iy9b1lh56jItD2sp/uaj/qugdYzGlc7UIb427elPWWv8LhzkMICX8wrihJk1309mFb33+ATbudJqkTC1zpAajZaHeKcUkiYbP169bR93gjCRgmI5qbp7mQ1c5W5tB9GEvN9+TJuaiBCcUXyGRyba+aeHhrjtOGRIqnmgXPM27Cm/57EpoCh2DoeNkT2KXwLsukI1laD2VTTyZ9/CLzGT+mcYdeHJOk9076gv3FWluY/SpNoOTjMIUzn/Jmv0snctA7YIIqFREh5ywxzTNF8b74ydT9oRC5V+wPI747ULLBKIFKSPK2M9+rhJMuMY3oXXnMVLMyJEg+oaSllKy9gvWsevuMV8FndJFnU+4MSVoYwNebxUTxtni+KnsuE2rXWJpb+PEAuzClz/Y8te8bcjLvk5dBRM4B2V4fZc2CZiwoprcxEomBCMjIL9IBNXkd1p8PxdwKY0pLG06cO2l1QATP8iLKnlwzGd7E/JGig15DpIIprAmrF5PvF5rKSlFFn0N2cNwMldCV5YvBUy9kmcSXtHcQW9T5QpB22pCGKeA3tfVfYAc3MIQhTGycoQRG7cEc4GGTGMlZlUtsl5qbMkuU47svnow=
-  bucket: testing.eweber.me
-  region: us-west-1
-  skip_cleanup: true
-  local_dir: build/public
-  on:
-    all_branches: true
+	provider: s3
+	access_key_id: AKIAIFPYH4YRB5HUTOTQ
+	secret_access_key:
+		secure: ImJ9WcWhkw1scFA4zUySoc7Ch6uRbWNFGYQZkyYQo7akHLA3rXc3+MAt1kDLV1UKa4E1mp7yC9dS5+iy9b1lh56jItD2sp/uaj/qugdYzGlc7UIb427elPWWv8LhzkMICX8wrihJk1309mFb33+ATbudJqkTC1zpAajZaHeKcUkiYbP169bR93gjCRgmI5qbp7mQ1c5W5tB9GEvN9+TJuaiBCcUXyGRyba+aeHhrjtOGRIqnmgXPM27Cm/57EpoCh2DoeNkT2KXwLsukI1laD2VTTyZ9/CLzGT+mcYdeHJOk9076gv3FWluY/SpNoOTjMIUzn/Jmv0snctA7YIIqFREh5ywxzTNF8b74ydT9oRC5V+wPI747ULLBKIFKSPK2M9+rhJMuMY3oXXnMVLMyJEg+oaSllKy9gvWsevuMV8FndJFnU+4MSVoYwNebxUTxtni+KnsuE2rXWJpb+PEAuzClz/Y8te8bcjLvk5dBRM4B2V4fZc2CZiwoprcxEomBCMjIL9IBNXkd1p8PxdwKY0pLG06cO2l1QATP8iLKnlwzGd7E/JGig15DpIIprAmrF5PvF5rKSlFFn0N2cNwMldCV5YvBUy9kmcSXtHcQW9T5QpB22pCGKeA3tfVfYAc3MIQhTGycoQRG7cEc4GGTGMlZlUtsl5qbMkuU47svnow=
+	bucket: testing.eweber.me
+	region: us-west-1
+	skip_cleanup: true
+	local_dir: build/public
+	on:
+		all_branches: true
