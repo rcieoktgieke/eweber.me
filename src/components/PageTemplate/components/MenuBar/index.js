@@ -1,5 +1,5 @@
 import React from 'react'
-import MenuItem from './components/MenuItem/index.js'
+import MenuItem from './components/MenuItem/index.jsx'
 
 class MenuBar extends React.Component {
   render () {
