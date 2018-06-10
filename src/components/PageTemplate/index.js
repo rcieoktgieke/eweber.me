@@ -1,5 +1,5 @@
 import React from 'react'
-import MenuBar from './components/MenuBar/index.js'
+import MenuBar from './components/MenuBar/index.jsx'
 import styles from './styles.js'
 import siteConfig from 'siteConfig.js'
 
