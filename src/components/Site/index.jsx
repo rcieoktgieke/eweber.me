@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Link } from 'react-router-dom'
 import Bundle from 'Bundle/index.jsx'
-import PageTemplate from 'PageTemplate/index.js'
+import PageTemplate from 'PageTemplate/index.jsx'
 import siteConfig from 'siteConfig.js'
 
 export default class Site extends React.Component {
