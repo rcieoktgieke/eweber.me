@@ -12,7 +12,8 @@ export default class Site extends React.Component {
 			modules[pageKey] = this.initModule(pageKey, page.sourcePath)
 		})
 		this.state = {
-			modules: modules
+			modules: modules,
+			modulesLoading: false
 		}
 	}
 	initModule (moduleName, filename) {
@@ -20,11 +21,14 @@ export default class Site extends React.Component {
 			filename: filename,
 			loading: false,
 			loaded: false,
-			load: () => { this.loadModule(this.state.modules[moduleName]) },
+			load: (callback=function () { return }) => {
+				this.loadModule(this.state.modules[moduleName], callback)
+			},
 			component: null
 		}
 	}
-	loadModule (module) {
+	loadModule (module, callback) {
+		// only begin loading module once
 		if (module.loaded === false && module.loading === false) {
 			module.loading = true
 			this.setState({
@@ -38,12 +42,27 @@ export default class Site extends React.Component {
 				this.setState({
 					module: this.state.modules
 				})
+				callback()
 			})
 		}
-		return () => { return module }
+	}
+	beginLoading (moduleName) {
+		const module = this.state.modules[moduleName]
+		if (this.state.modulesLoading === false) {
+			module.load(() => {
+				// on load complete callback of inital module, preload other modules
+				Object.entries(this.state.modules).forEach(([name, preloadModule]) => {
+					preloadModule.load()
+				})
+			})
+			this.setState({
+				modulesLoading: true
+			})
+		}
+		return module
 	}
 	render () {
-		var pages = siteConfig.pages
+		const pages = siteConfig.pages
 		return (
 			<div>
 				<Route
@@ -51,7 +70,7 @@ export default class Site extends React.Component {
 					component={() => (
 						<PageTemplate>
 							<ModulePlaceholder
-								module={ this.state.modules.home }
+								module={ this.beginLoading('home') }
 							/>
 						</PageTemplate>
 					)}
@@ -61,7 +80,7 @@ export default class Site extends React.Component {
 					component={() => (
 						<PageTemplate>
 							<ModulePlaceholder
-								module={ this.state.modules.portfolio }
+								module={ this.beginLoading('portfolio') }
 							/>
 						</PageTemplate>
 					)}
