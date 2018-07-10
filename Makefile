@@ -21,13 +21,8 @@ RUN_OPTIONS :=  -e HOME=/home/$(USER) \
 								-v "$(shell pwd)":/home/$(USER)/eweber.me \
 								-v $(HOME)/.ssh:/home/$(USER)/.ssh \
 								-v $(HOME)/.gitconfig:/home/$(USER)/.gitconfig \
-								-p 8088:8080 \
+								-p 8080:8080 \
 								-w /home/$(USER)
-
-WAIT_FOR_RUNNING := while [[ ! $$(docker logs $(CONTAINER_NAME) | grep 'Entrypoint complete') ]]; do \
-											echo "Waiting for container to be ready"; \
-											sleep 2; \
-										done
 
 DOCKER_RUN_CMD := docker run \
 										-d \
@@ -49,7 +44,7 @@ ifndef CONTAINER_ID
 	endif
 endif
 
-.PHONY docker_build docker_start docker_stop docker_rm docker_rmi
+# .PHONY docker_build docker_start docker_stop docker_rm docker_rmi
 
 docker_build:
 	docker build -t $(BASE_IMG_NAME) docker/base
@@ -58,7 +53,7 @@ docker_build:
 docker_start:
 	xhost + 127.0.0.1
 	$(DOCKER_START_CMD)
-	$(WAIT_FOR_RUNNING)
+	docker exec $(CONTAINER_NAME) bash /container_user_setup.sh
 	docker exec -it --user $(USER) $(CONTAINER_NAME) bash
 
 docker_stop:

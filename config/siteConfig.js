@@ -25,11 +25,13 @@ const siteConfig = {
 	pages: {
 		home: {
 			path: '/',
+			sourcePath: 'scenes/Home/index',
 			htmlPath: '',
 			depth: 0
 		},
 		portfolio: {
 			path: '/portfolio',
+			sourcePath: 'scenes/Portfolio/index',
 			htmlPath: 'portfolio/',
 			depth: 1
 		}
